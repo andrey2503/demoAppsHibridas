@@ -6,25 +6,47 @@ import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-
+import { ContactoPage } from '../pages/contacto/contacto';
+import { MapaPage } from '../pages/mapa/mapa';
+import { GoogleMaps } from '@ionic-native/google-maps';
+import { HttpClientModule } from '@angular/common/http';
+import { PaisProvider } from '../providers/pais/pais';
+import { UiComponentsPage } from '../pages/ui-components/ui-components';
+import { BackendComponentsPage } from '../pages/backend-components/backend-components';
+import { UiDetailsPage } from '../pages/ui-details/ui-details';
+import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    ContactoPage,
+    MapaPage,
+    UiComponentsPage,
+    BackendComponentsPage,
+    UiDetailsPage,
+    SafeHtmlPipe
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    HttpClientModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
+    ContactoPage,
+    MapaPage ,
+    UiComponentsPage,
+    BackendComponentsPage,
+    UiDetailsPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    GoogleMaps,
+    {provide: ErrorHandler, useClass: IonicErrorHandler},
+    PaisProvider
   ]
 })
 export class AppModule {}

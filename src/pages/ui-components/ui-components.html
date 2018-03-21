@@ -1,0 +1,24 @@
+<!--
+  Generated template for the UiComponentsPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>UIComponents</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h3>Listas</h3>
+    <ion-list inset>
+        <button ion-item *ngFor="let item of lista_componentes" (click)="showUI(item)">
+            {{ item.nombre }}
+          </button> 
+      </ion-list>
+         
+</ion-content>
