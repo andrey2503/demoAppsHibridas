@@ -18,8 +18,8 @@ export class PaisProvider {
   // console.log(this.http.get('https://api.myjson.com/bins/w076v'));
   
     // console.log(this.http.get('http://localhost/leerjson/ui.json'));
-    // return this.http.get('http://localhost/leerjson/ui.json');
-    return this.http.get('http://192.168.1.6/leerjson/ui.json');
+    return this.http.get('http://localhost/apirest/public/api/uicomponentes');
+    // return this.http.get('http://192.168.1.6/leerjson/ui.json');
     
   }// end to getUIComponents
 
