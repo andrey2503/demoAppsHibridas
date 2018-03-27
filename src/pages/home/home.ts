@@ -4,7 +4,7 @@ import { ContactoPage } from '../contacto/contacto';
 import { MapaPage } from '../mapa/mapa';
 import {  UiComponentsPage } from '../ui-components/ui-components';
 import { BackendComponentsPage } from '../backend-components/backend-components';
-
+import { BlogPage } from '../blog/blog';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -26,6 +26,11 @@ export class HomePage {
   }
   backEnd(){
     this.navCtrl.push(BackendComponentsPage);        
+  }
+  blog(){
+    
+    this.navCtrl.push(BlogPage);        
+    
   }
 
 }

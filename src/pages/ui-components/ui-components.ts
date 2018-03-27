@@ -38,7 +38,7 @@ export class UiComponentsPage {
     this.provider.getUIComponents().subscribe(data=> {
       console.log(data);
       this.lista_componentes=data;
-    });;
+    });
     
   }
 

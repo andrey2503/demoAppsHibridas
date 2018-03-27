@@ -1,0 +1,55 @@
+<!--
+  Generated template for the BlogPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Blog</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <h4>Post</h4>
+  
+  <ion-card *ngFor="let item of post">
+
+    <img src="{{ item.urlimagen }}" (click)="verNota(item.id)"/>
+
+    <ion-card-content (click)="verNota(item.id)">
+      <ion-card-title>
+        {{ item.titulo }}
+      </ion-card-title>
+      <p>
+          {{ item.descripcion }}       
+      </p>
+    </ion-card-content>
+
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="danger" icon-start (click)="like(item.id)">
+          <ion-icon name='md-thumbs-up'></ion-icon>
+          Likes {{item.likes }}
+        </button>
+      </ion-col>
+      
+      <ion-col text-center>
+        <button ion-button clear small color="danger" icon-start (click)="verComentarios(item.id)">
+          <ion-icon name='musical-notes'></ion-icon>
+          Comentario
+        </button>
+      </ion-col>
+      <ion-col text-right>
+        <button ion-button clear small color="danger" icon-start>
+          <ion-icon name='md-eye'></ion-icon>
+          Ver
+        </button>
+      </ion-col>
+    </ion-row>
+
+  </ion-card>
+</ion-content>

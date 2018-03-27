@@ -15,6 +15,9 @@ import { UiComponentsPage } from '../pages/ui-components/ui-components';
 import { BackendComponentsPage } from '../pages/backend-components/backend-components';
 import { UiDetailsPage } from '../pages/ui-details/ui-details';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
+import { BlogPage } from '../pages/blog/blog';
+import { ComentariosPostPage } from '../pages/comentarios-post/comentarios-post';
+
 @NgModule({
   declarations: [
     MyApp,
@@ -24,7 +27,9 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
     UiComponentsPage,
     BackendComponentsPage,
     UiDetailsPage,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    BlogPage,
+    ComentariosPostPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +44,9 @@ import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
     MapaPage ,
     UiComponentsPage,
     BackendComponentsPage,
-    UiDetailsPage
+    UiDetailsPage,
+    BlogPage,
+    ComentariosPostPage
   ],
   providers: [
     StatusBar,
