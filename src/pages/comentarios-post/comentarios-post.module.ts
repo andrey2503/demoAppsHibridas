@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { IonicPageModule } from 'ionic-angular';
-import { ComentariosPostPage } from './comentarios-post';
+// import { ComentariosPostPage } from './comentarios-post';
 
 @NgModule({
   declarations: [
-    ComentariosPostPage,
+    // ComentariosPostPage,
   ],
   imports: [
-    IonicPageModule.forChild(ComentariosPostPage),
+    // IonicPageModule.forChild(ComentariosPostPage),
   ],
 })
 export class ComentariosPostPageModule {}

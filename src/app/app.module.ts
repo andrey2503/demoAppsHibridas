@@ -17,6 +17,9 @@ import { UiDetailsPage } from '../pages/ui-details/ui-details';
 import { SafeHtmlPipe } from '../pipes/safe-html/safe-html';
 import { BlogPage } from '../pages/blog/blog';
 import { ComentariosPostPage } from '../pages/comentarios-post/comentarios-post';
+import { NotasSqlPage } from '../pages/notas-sql/notas-sql';
+import { DbLiteControlProvider } from '../providers/db-lite-control/db-lite-control';
+import { SQLite } from '@ionic-native/sqlite';
 
 @NgModule({
   declarations: [
@@ -29,7 +32,8 @@ import { ComentariosPostPage } from '../pages/comentarios-post/comentarios-post'
     UiDetailsPage,
     SafeHtmlPipe,
     BlogPage,
-    ComentariosPostPage
+    ComentariosPostPage,
+    NotasSqlPage
   ],
   imports: [
     BrowserModule,
@@ -46,14 +50,17 @@ import { ComentariosPostPage } from '../pages/comentarios-post/comentarios-post'
     BackendComponentsPage,
     UiDetailsPage,
     BlogPage,
-    ComentariosPostPage
+    ComentariosPostPage,
+    NotasSqlPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     GoogleMaps,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    PaisProvider
+    PaisProvider,
+    DbLiteControlProvider,
+    SQLite
   ]
 })
 export class AppModule {}

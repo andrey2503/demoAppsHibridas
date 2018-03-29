@@ -5,6 +5,7 @@ import { MapaPage } from '../mapa/mapa';
 import {  UiComponentsPage } from '../ui-components/ui-components';
 import { BackendComponentsPage } from '../backend-components/backend-components';
 import { BlogPage } from '../blog/blog';
+import { NotasSqlPage } from '../notas-sql/notas-sql';
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -28,9 +29,10 @@ export class HomePage {
     this.navCtrl.push(BackendComponentsPage);        
   }
   blog(){
-    
-    this.navCtrl.push(BlogPage);        
-    
+    this.navCtrl.push(BlogPage);
+  }
+  notasSQL(){
+    this.navCtrl.push(NotasSqlPage);
   }
 
 }
