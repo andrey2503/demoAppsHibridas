@@ -19,25 +19,6 @@ export class DbLiteControlProvider {
   }
 
 
-
-
-  // private createDatabase(){
-  //   this.sqlite.create({
-  //     name: 'data.db',
-  //     location: 'default' // the location field is required
-  //   })
-  //   .then((db) => {
-  //     this.tasksService.setDatabase(db);
-  //     return this.tasksService.createTable();
-  //   })
-  //   .then(() =>{
-  //     this.splashScreen.hide();
-  //     this.rootPage = 'HomePage';
-  //   })
-  //   .catch(error =>{
-  //     console.error(error);
-  //   });
-  // }
   cargarDB(){
     var dbtext = this.sqlite.create({
        name: 'notas.db',
@@ -54,7 +35,7 @@ export class DbLiteControlProvider {
 
   crearTablas(){
   let tb= this.database.executeSql('create table if not exists Notas(nota TEXT,estado integer)', {})
-          .then(() => alert("creadas tablas en then crea tablas"))
+          .then(() => console.log("creadas tablas en then crea tablas"))
           .catch(e => alert(e));
     
         }

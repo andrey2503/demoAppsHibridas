@@ -8,28 +8,43 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * Ionic pages and navigation.
  */
 import {  GoogleMaps,  GoogleMap,  GoogleMapsEvent,  GoogleMapOptions,  CameraPosition,  MarkerOptions,  Marker } from '@ionic-native/google-maps';
+import { Geolocation } from '@ionic-native/geolocation';
 //end mapa
 
 @IonicPage()
 @Component({
   selector: 'page-mapa',
   templateUrl: 'mapa.html',
+  providers:[Geolocation]
 })
 export class MapaPage {
   map: GoogleMap;
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  public latitud:any;
+  public longitud:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams,private geolocation: Geolocation) {
   }
 
   ionViewDidLoad() {
-    this.loadMap();
+    this.cargarPosicion();
   }//fin de ionviredisload
+
+  cargarPosicion(){
+    this.geolocation.getCurrentPosition().then((resp) => {
+     this.latitud = resp.coords.latitude;
+     this.longitud = resp.coords.longitude;
+    //  alert(this.latitud+" /" +this.longitud);
+     this.loadMap();
+     }).catch((error) => {
+       console.log('Error getting location', error);
+     });
+  }
 
   loadMap() {
     let mapOptions: GoogleMapOptions = {
       camera: {
         target: {
-          lat: 43.0741904,
-          lng: -89.3809802
+          lat: this.latitud,
+          lng: this.longitud
         },
         zoom: 18,
         tilt: 30
@@ -45,22 +60,27 @@ export class MapaPage {
 
         // Now you can use all methods safely.
         this.map.addMarker({
-            title: 'Ionic',
+            title: 'Estas aqui',
             icon: 'blue',
             animation: 'DROP',
             position: {
-              lat: 43.0741904,
-              lng: -89.3809802
+              lat: this.latitud,
+              lng: this.longitud
             }
           })
           .then(marker => {
             marker.on(GoogleMapsEvent.MARKER_CLICK)
               .subscribe(() => {
-                alert('clicked');
+                alert('Estas aqui');
               });
           });
 
+          
+          //marcas
+
       });
-  }
+
+      
+  }// fin de loadmap
 
 }//fin de la clase

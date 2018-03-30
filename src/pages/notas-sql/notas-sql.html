@@ -17,20 +17,22 @@
     <button ion-button (click)="cargarNotas()">
         Cargar nota
       </button>
-  <ion-list>
-    <button ion-item *ngFor="let item of notas" (click)="itemSelected(item)">
+
+      <ion-card  ion-item *ngFor="let item of notas" (click)="itemSelected(item)">
+        <ion-card-header>
+          
+        </ion-card-header>
+        <ion-card-content>
       {{ item.nota }}
-    </button>  
-  </ion-list>
-    <ion-list>
-        <ion-item>
-            <ion-input [(ngModel)]="nota" type="text" placeholder="Nota"></ion-input>
-        </ion-item>
-    </ion-list>
-    <button ion-button (click)="agregarNota()">
-      Agregar Nota
-      </button> 
-      <button ion-button (click)="eliminarDatos()">
+        </ion-card-content>
+      </ion-card>
+
+      <!-- <button ion-button (click)="eliminarDatos()">
         Eliminar todo
-        </button> 
+      </button>  -->
+
+        <ion-fab right bottom>
+          <button (click)="showPrompt()" ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
+        </ion-fab>
+
 </ion-content>

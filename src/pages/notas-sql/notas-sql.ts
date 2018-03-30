@@ -6,6 +6,7 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
+import { AlertController } from 'ionic-angular';
 import {DbLiteControlProvider}  from '../../providers/db-lite-control/db-lite-control';
 @IonicPage()
 @Component({
@@ -17,18 +18,19 @@ export class NotasSqlPage {
   public notas:any;
   public nota:any;
   // constructor(public navCtrl: NavController, public navParams: NavParams) {
-  constructor(public navCtrl: NavController, public navParams: NavParams,private dbsqlite:DbLiteControlProvider) {
+  constructor(public navCtrl: NavController, public navParams: NavParams,private dbsqlite:DbLiteControlProvider,public alertCtrl: AlertController) {
     this.notas=[];
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotasSqlPage');
-    // this.cargarNotas();
+    this.cargarNotas();
     this.cargarDB();
+    // this.cargarNotas();        
   }
 
   cargarDB(){
-    var estado=this.dbsqlite.cargarDB();
+   this.dbsqlite.cargarDB();
     this.cargarNotas();    
   }
 
@@ -51,12 +53,40 @@ export class NotasSqlPage {
     }
   }//fin de cargarNotas
 
-  agregarNota(){
-    let datos={'nota':this.nota ,estado:1};
+  agregarNota(nota){
+    let datos={'nota':nota ,estado:1};
     this.dbsqlite.create(datos);
     this.cargarNotas();
   }
 
-  
+  showPrompt() {
+    let prompt = this.alertCtrl.create({
+      title: '',
+      message: "Agregar nota",
+      inputs: [
+        {
+          name: 'nota',
+          placeholder: ''
+        },
+      ],
+      buttons: [
+        {
+          text: 'Cancel',
+          handler: data => {
+            console.log('Cancel clicked');
+          }
+        },
+        {
+          text: 'Save',
+          handler: data => {
+            console.log(data.nota);
+            console.log('Saved clicked');
+            this.agregarNota(data.nota);
+          }
+        }
+      ]
+    });
+    prompt.present();
+  }
 
-}
+}// fin del clase
