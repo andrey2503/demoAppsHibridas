@@ -24,14 +24,17 @@ export class NotasSqlPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad NotasSqlPage');
-    this.cargarNotas();
+    // this.cargarNotas();
     this.cargarDB();
     // this.cargarNotas();        
   }
 
   cargarDB(){
-   this.dbsqlite.cargarDB();
-    this.cargarNotas();    
+    this.dbsqlite.cargarDB().then(estado=>{
+       if(estado){
+       this.cargarNotas();
+      }    
+    });
   }
 
   eliminarDatos(){
@@ -39,7 +42,6 @@ export class NotasSqlPage {
   }
 
   cargarNotas(){
-    
     if(this.dbsqlite.dbestado){
       this.notas = this.dbsqlite.getAll().then(notas => {
         console.log(notas);

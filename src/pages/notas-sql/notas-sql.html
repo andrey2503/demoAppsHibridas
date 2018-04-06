@@ -14,25 +14,15 @@
 
 
 <ion-content padding>
-    <button ion-button (click)="cargarNotas()">
-        Cargar nota
-      </button>
 
-      <ion-card  ion-item *ngFor="let item of notas" (click)="itemSelected(item)">
-        <ion-card-header>
-          
-        </ion-card-header>
+      <ion-card *ngFor="let item of notas">
         <ion-card-content>
       {{ item.nota }}
         </ion-card-content>
       </ion-card>
 
-      <!-- <button ion-button (click)="eliminarDatos()">
-        Eliminar todo
-      </button>  -->
-
-        <ion-fab right bottom>
-          <button (click)="showPrompt()" ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
-        </ion-fab>
+      <ion-fab right bottom>
+        <button (click)="showPrompt()" ion-fab color="blue"><ion-icon name="add"></ion-icon></button>
+      </ion-fab>
 
 </ion-content>

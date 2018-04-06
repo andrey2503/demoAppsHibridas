@@ -35,6 +35,8 @@ export class ComentariosPostPage {
     });
   }
   enviarComentario(){
+    alert(this.id+"/"+this.comentario);
+    
     this.provider.enviarComentario(this.id,this.comentario).subscribe(
       state => {
           console.log(state);

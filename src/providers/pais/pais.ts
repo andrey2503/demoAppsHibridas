@@ -37,6 +37,10 @@ export class PaisProvider {
   getComentarios(id){
     return this.http.get('/API/comentarios/'+id);    
   }
+
+  morepost(id){
+    return this.http.get('/API/morepost/'+id);    
+  }
   
   enviarComentario(id,comentario){
    

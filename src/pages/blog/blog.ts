@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import {  UiComponentsPage } from '../ui-components/ui-components';
 
 /**
  * Generated class for the BlogPage page.
@@ -17,6 +18,7 @@ import { ComentariosPostPage } from '../comentarios-post/comentarios-post';
 })
 export class BlogPage {
   public post:any;
+  public lastidpost:any;
   constructor(public navCtrl: NavController, public navParams: NavParams,public provider:PaisProvider) {
     this.post=[];
   }
@@ -30,12 +32,14 @@ export class BlogPage {
     this.provider.getPost().subscribe(data=> {
       console.log(data);
       this.post=data;
+      this.lastidpost=this.post[this.post.length - 1].id;
     });
   }
 
-  verNota(id){
-    alert(id);
+  verNota(data){
+    this.navCtrl.push(UiComponentsPage,{data:data});   
   }
+
 
   verComentarios(id){
     // alert(id);
@@ -44,6 +48,14 @@ export class BlogPage {
 
   like(id){
     alert("like para "+ id);
+  }
+
+  cargarMasHistorias(){
+    this.provider.morepost(this.lastidpost).subscribe(data=> {
+      console.log(data);
+      this.post = this.post.concat(data);
+      this.lastidpost=this.post[this.post.length - 1].id;
+    });
   }
 
 }

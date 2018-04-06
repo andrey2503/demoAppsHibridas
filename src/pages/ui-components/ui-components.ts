@@ -7,19 +7,20 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
  * See https://ionicframework.com/docs/components/#navigation for more info on
  * Ionic pages and navigation.
  */
-import { UiDetailsPage } from '../ui-details/ui-details';
-import { PaisProvider } from '../../providers/pais/pais';
+// import { UiDetailsPage } from '../ui-details/ui-details';
+// import { PaisProvider } from '../../providers/pais/pais';
 @IonicPage()
 @Component({
   selector: 'page-ui-components',
   templateUrl: 'ui-components.html',
-  providers:[PaisProvider],
+  // providers:[PaisProvider],
 })
 
 export class UiComponentsPage {
-  public lista_componentes:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams,public provider:PaisProvider) {
-    this.lista_componentes=[];
+  public data:any;
+  constructor(public navCtrl: NavController, public navParams: NavParams) {
+    this.data=this.navParams.get('data');
+    console.log(this.data)
   }
 
   ionViewDidLoad() {
@@ -35,16 +36,15 @@ export class UiComponentsPage {
 
   loadComponenst(){
     // console.log(this.provider.getUIComponents());
-    this.provider.getUIComponents().subscribe(data=> {
-      console.log(data);
-      this.lista_componentes=data;
-    });
+    // this.provider.getUIComponents().subscribe(data=> {
+    //   console.log(data);
+    //   this.lista_componentes=data;
+    // });
     
   }
 
   showUI(component){
-    this.navCtrl.push(UiDetailsPage,{component: component});
-
+    // this.navCtrl.push(UiDetailsPage,{component: component});
   }
 
 }//fin de la clase

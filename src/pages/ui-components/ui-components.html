@@ -7,18 +7,30 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>UIComponents</ion-title>
+    <ion-title>{{data.titulo}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-  <h3>Listas</h3>
+  <!-- <h3>Listas</h3>
     <ion-list inset>
         <button ion-item *ngFor="let item of lista_componentes" (click)="showUI(item)">
             {{ item.nombre }}
           </button> 
-      </ion-list>
+      </ion-list> -->
          
+      <ion-card>
+          <img src="{{data.urlimagen}}"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{data.titulo}}
+              </ion-card-title>
+            <p>
+                {{data.descripcion}}
+
+            </p>
+          </ion-card-content>
+        </ion-card>
 </ion-content>

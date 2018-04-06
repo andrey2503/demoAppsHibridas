@@ -14,18 +14,17 @@
 
 
 <ion-content padding>
-  <h4>Post</h4>
   
   <ion-card *ngFor="let item of post">
 
-    <img src="{{ item.urlimagen }}" (click)="verNota(item.id)"/>
+    <img src="{{ item.urlimagen }}" (click)="verNota(item)"/>
 
-    <ion-card-content (click)="verNota(item.id)">
+    <ion-card-content (click)="verNota(item)">
       <ion-card-title>
         {{ item.titulo }}
       </ion-card-title>
       <p>
-          {{ item.descripcion }}       
+          {{ item.descripcion  | slice:0:100 }}  
       </p>
     </ion-card-content>
 
@@ -52,4 +51,7 @@
     </ion-row>
 
   </ion-card>
+  <button (click)="cargarMasHistorias()" full color="light" ion-button="" small="" class="disable-hover button button-ios button-default button-default-ios button-small button-small-ios button-ios-light"><span class="button-inner">
+    Cargar..</span><div class="button-effect"></div></button>
+  <!-- <button ion-button color="dark" clear large>Cargar mas registros</button> -->
 </ion-content>

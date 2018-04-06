@@ -18,9 +18,8 @@ export class DbLiteControlProvider {
     // this.create({title:'apunte',estado:2});
   }
 
-
   cargarDB(){
-    var dbtext = this.sqlite.create({
+     return this.sqlite.create({
        name: 'notas.db',
        location: 'default'
      })
@@ -28,8 +27,8 @@ export class DbLiteControlProvider {
          this.database=db;
          this.crearTablas();
          this.dbestado=true;
+         return true;
        })//fin del then
-       
        .catch(e => console.log(e));
    }// fin de cargar DB
 
