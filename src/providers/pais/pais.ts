@@ -30,21 +30,22 @@ export class PaisProvider {
   }// end to getUIComponents
 
   getPost(){
-    return this.http.get('/API/post');  
+    // return this.http.get('52.37.219.174/api/public/api/post');  
+    return this.http.get('https://owlwhite.com/api/public/api/post');  
     // return this.http.get('http://localhost/apiblog/public/api/post'); 
   }
 
   getComentarios(id){
-    return this.http.get('/API/comentarios/'+id);    
+    return this.http.get('https://owlwhite.com/api/public/api/comentarios/'+id);    
   }
 
   morepost(id){
-    return this.http.get('/API/morepost/'+id);    
+    return this.http.get('https://owlwhite.com/api/public/api/morepost/'+id);    
   }
   
   enviarComentario(id,comentario){
    
-    return this.http.post('/API/comentario',{'id':id,'comentario':comentario}, httpOptions)
+    return this.http.post('https://owlwhite.com/api/public/api/comentario',{'id':id,'comentario':comentario}, httpOptions)
     .pipe(
       
     );
